@@ -1,0 +1,27 @@
+#!/usr/sbin/nft -f
+
+table inet protect
+delete table inet protect
+
+define extifs = { eth0 }
+
+table inet protect {
+        set ipex_v4 {
+                type ipv4_addr
+                flags interval
+                auto-merge
+        }
+        set ipex_v6 {
+                type ipv6_addr
+                flags interval
+                auto-merge
+        }
+
+        counter ipex_v4 {};
+        counter ipex_v6 {};
+
+	chain protect_in {
+                type filter hook input priority filter - 5; policy accept;
+	}
+}
+

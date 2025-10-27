@@ -1,0 +1,4 @@
+#!/usr/sbin/nft -f
+
+table inet protect
+delete table inet protect
