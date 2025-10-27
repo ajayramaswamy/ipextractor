@@ -9,11 +9,13 @@ table inet protect {
         set ipex_v4 {
                 type ipv4_addr
                 flags interval
+                counter
                 auto-merge
         }
         set ipex_v6 {
                 type ipv6_addr
                 flags interval
+                counter
                 auto-merge
         }
 
